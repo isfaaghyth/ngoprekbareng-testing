@@ -5,8 +5,15 @@ class Calculator constructor(
     private val b: Int
 ) {
 
-    fun calculator(onSuccess: (Int) -> Unit) {
-        onSuccess(a + b)
+    fun calculator(
+        onSuccess: (Int) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        try {
+            onSuccess(a + b)
+        } catch (e: Exception) {
+            onError(Throwable("duh!"))
+        }
     }
 
 }

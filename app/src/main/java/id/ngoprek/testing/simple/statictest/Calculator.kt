@@ -1,4 +1,4 @@
-package id.ngoprek.testing.simple.static
+package id.ngoprek.testing.simple.statictest
 
 object Addition {
     fun addition(a: Int, b: Int): Int {
@@ -8,8 +8,11 @@ object Addition {
 
 class Calculator {
 
+    var result = 0
+
     fun calc(a: Int, b: Int): Int {
-        return Addition.addition(a, b)
+        result = Addition.addition(a, b)
+        return result + 2
     }
 
 }

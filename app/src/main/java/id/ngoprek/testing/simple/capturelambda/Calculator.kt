@@ -1,11 +1,10 @@
 package id.ngoprek.testing.simple.capturelambda
 
-class Calculator constructor(
+class CalculatorLambda constructor(
     private val a: Int,
     private val b: Int
 ) {
-
-    fun calculator(
+    fun addition(
         onSuccess: (Int) -> Unit,
         onError: (Throwable) -> Unit
     ) {
@@ -14,6 +13,22 @@ class Calculator constructor(
         } catch (e: Exception) {
             onError(Throwable("duh!"))
         }
+    }
+}
+
+class Calculator constructor(
+    private val calc: CalculatorLambda
+) {
+
+    var result = 0
+    lateinit var onError: Throwable
+
+    fun calculator() {
+        calc.addition({
+            result = it
+        }, {
+            onError = it
+        })
     }
 
 }

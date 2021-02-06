@@ -9,7 +9,9 @@ class AdvancedCalculator(
 ) : Addition, Subtraction {
 
     override fun addition(a: Int, b: Int): Int {
-        return factory.addition(a, b)
+        val addition = factory.addition(a, b)
+        val subtraction = factory.subtraction(a, b)
+        return addition + subtraction
     }
 
     override fun subtraction(a: Int, b: Int): Int {
